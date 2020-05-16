@@ -1,0 +1,61 @@
+--Furious Onslaught
+local scard,sid=aux.GetID()
+function scard.initial_effect(c)
+	--spell
+	aux.EnableSpellAttribute(c)
+	--get ability
+	aux.AddSpellCastEffect(c,0,nil,scard.op1)
+end
+--get ability
+function scard.op1(e,tp,eg,ep,ev,re,r,rp)
+	local c=e:GetHandler()
+	--add race
+	local e1=Effect.CreateEffect(c)
+	e1:SetDescription(aux.Stringid(sid,1))
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetCode(EFFECT_ADD_CREATURE_RACE)
+	e1:SetProperty(EFFECT_FLAG_CLIENT_HINT)
+	e1:SetValue(RACE_ARMORED_DRAGON)
+	local e2=Effect.CreateEffect(c)
+	e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_GRANT)
+	e2:SetTargetRange(LOCATION_BZONE,0)
+	e2:SetTarget(aux.TargetBoolFunction(Card.DMIsRace,RACE_DRAGO_NOID))
+	e2:SetLabelObject(e1)
+	e2:SetReset(RESET_PHASE+PHASE_END)
+	Duel.RegisterEffect(e2,tp)
+	if not RaceList then RaceList={} end
+	table.insert(RaceList,RACE_ARMORED_DRAGON)
+	local e3=Effect.CreateEffect(c)
+	e3:SetType(EFFECT_TYPE_SINGLE)
+	e3:SetCode(EFFECT_ADD_CREATURE_RACE_CATEGORY)
+	e3:SetValue(RACECAT_DRAGON)
+	local e4=e2:Clone()
+	e4:SetLabelObject(e3)
+	Duel.RegisterEffect(e4,tp)
+	if not RaceCatList then RaceCatList={} end
+	table.insert(RaceCatList,RACECAT_DRAGON)
+	--power up
+	local e5=Effect.CreateEffect(c)
+	e5:SetDescription(aux.Stringid(sid,2))
+	e5:SetType(EFFECT_TYPE_SINGLE)
+	e5:SetCode(EFFECT_UPDATE_POWER)
+	e5:SetProperty(EFFECT_FLAG_CLIENT_HINT)
+	e5:SetValue(4000)
+	local e6=e2:Clone()
+	e6:SetLabelObject(e5)
+	Duel.RegisterEffect(e6,tp)
+	--double breaker
+	local e7=Effect.CreateEffect(c)
+	e7:SetType(EFFECT_TYPE_SINGLE)
+	e7:SetCode(EFFECT_BREAKER)
+	local e8=e7:Clone()
+	e8:SetDescription(aux.Stringid(sid,3))
+	e8:SetCode(EFFECT_DOUBLE_BREAKER)
+	e8:SetProperty(EFFECT_FLAG_CLIENT_HINT)
+	local e9=e2:Clone()
+	e9:SetLabelObject(e7)
+	Duel.RegisterEffect(e9,tp)
+	local e10=e2:Clone()
+	e10:SetLabelObject(e8)
+	Duel.RegisterEffect(e10,tp)
+end

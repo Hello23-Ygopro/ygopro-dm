@@ -1,0 +1,1 @@
+You can save a replay of a game when it ends. _LastReplay.yrp is an auto-saved replay of the most recent game.
