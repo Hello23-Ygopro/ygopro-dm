@@ -1,28 +1,29 @@
 # YGOPro DM
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/18324297/82099103-bd50ab80-9706-11ea-8e52-2d5c36107d22.png">
+	<img src="https://user-images.githubusercontent.com/18324297/82112862-5dcbbd80-9751-11ea-9e28-f37fbd9795a9.png">
 </p>
 
 ## How to play
-1. Start `ygopro_vs_links.exe`.
+1. Start `ygopro_vs.exe`.<br>
+Note: If YGOPro crashes between games, start `ygopro_vs_lan_fix.exe` instead.
 2. Click on `Deck Management` to build your deck. Remember to add 1 _Duel Masters Rules_!
 If you do not build your deck according to the following rules, you will lose the game and have to rebuild your deck:<br>
 ● Your deck must be exactly 40 cards.<br>
-3. Enable `Auto shield placement` or `Auto Spell/Trap Card placement` in the Settings menu so YGOPro will not tell you the names of the cards to set as shields.
-4. At the start of the game, take 5 cards from the top of your deck without [looking](https://duelmasters.fandom.com/wiki/Look) at them and put them in a row in front of you face down. These face down cards are your [shields](https://duelmasters.wikia.com/wiki/Shield). (You can only have a maximum of 5 shields in YGOPro.) Then [draw](https://duelmasters.fandom.com/wiki/Draw) 5 cards. There is no limit to the number of cards you can have in your hand.
-5. During your [Start of Turn Step](https://duelmasters.fandom.com/wiki/Start_of_Turn_Step), [untap](https://duelmasters.fandom.com/wiki/Tap_(Untap)) all your [tapped](https://duelmasters.fandom.com/wiki/Tap_(Untap)) creatures in the [battle zone](https://duelmasters.fandom.com/wiki/Battle_Zone) and tapped cards in your [mana zone](https://duelmasters.fandom.com/wiki/Mana_Zone).
-6. During your [Draw Step](https://duelmasters.fandom.com/wiki/Draw_Step), draw 1 card. The person who plays first skips drawing a card on their first turn.
-7. During your [Charge Step](https://duelmasters.fandom.com/wiki/Charge_Step), you can put a card from your hand into your mana zone. There is no limit to the number of cards you can have in your mana zone.
-8. During your [Main Step](https://duelmasters.fandom.com/wiki/Main_Step), you can [play](https://duelmasters.fandom.com/wiki/Play) as many [creatures](https://duelmasters.fandom.com/wiki/Creature), [spells](https://duelmasters.fandom.com/wiki/Spell), [cross gears](https://duelmasters.fandom.com/wiki/Cross_Gear), and [castles](https://duelmasters.fandom.com/wiki/Castle) as your mana zone can afford. You can play any card in any order. (You can only have a maximum of 6 creatures in YGOPro.)
-9. During your [Attack Step](https://duelmasters.fandom.com/wiki/Attack_Step), you can [attack](https://duelmasters.fandom.com/wiki/Attack) with your creatures in the battle zone by tapping them and declaring what you want to attack. You cannot attack with creatures you just put into the battle zone this turn because they have [summoning sickness](https://duelmasters.fandom.com/wiki/Summoning_Sickness). There is no limit to the number of times a creature can attack each turn as long as it is untapped and you can tap it.
-10. During your [End Step](https://duelmasters.fandom.com/wiki/End_Step), [resolve](https://duelmasters.fandom.com/wiki/Resolution) any [abilities](https://duelmasters.fandom.com/wiki/Ability) that [trigger](https://duelmasters.fandom.com/wiki/Trigger) "at the end of your turn". Then your turn ends.
+3. At the start of the game, take 5 cards from the top of your deck without [looking](https://duelmasters.fandom.com/wiki/Look) at them and put them in a row in front of you face down. These face down cards are your [shields](https://duelmasters.wikia.com/wiki/Shield). (You can only have a maximum of 5 shields in YGOPro.) Then [draw](https://duelmasters.fandom.com/wiki/Draw) 5 cards. There is no limit to the number of cards you can have in your hand.
+4. During your [Start of Turn Step](https://duelmasters.fandom.com/wiki/Start_of_Turn_Step), [untap](https://duelmasters.fandom.com/wiki/Tap_(Untap)) all your [tapped](https://duelmasters.fandom.com/wiki/Tap_(Untap)) creatures in the [battle zone](https://duelmasters.fandom.com/wiki/Battle_Zone) and tapped cards in your [mana zone](https://duelmasters.fandom.com/wiki/Mana_Zone).
+5. During your [Draw Step](https://duelmasters.fandom.com/wiki/Draw_Step), draw 1 card. The person who plays first skips drawing a card on their first turn.
+6. During your [Charge Step](https://duelmasters.fandom.com/wiki/Charge_Step), you can put a card from your hand into your mana zone. There is no limit to the number of cards you can have in your mana zone.
+7. During your [Main Step](https://duelmasters.fandom.com/wiki/Main_Step), you can [play](https://duelmasters.fandom.com/wiki/Play) as many [creatures](https://duelmasters.fandom.com/wiki/Creature), [spells](https://duelmasters.fandom.com/wiki/Spell), [cross gears](https://duelmasters.fandom.com/wiki/Cross_Gear), and [castles](https://duelmasters.fandom.com/wiki/Castle) as your mana zone can afford. You can play any card in any order. (You can only have a maximum of 6 creatures in YGOPro.)
+8. During your [Attack Step](https://duelmasters.fandom.com/wiki/Attack_Step), you can [attack](https://duelmasters.fandom.com/wiki/Attack) with your creatures in the battle zone by tapping them and declaring what you want to attack. You cannot attack with creatures you just put into the battle zone this turn because they have [summoning sickness](https://duelmasters.fandom.com/wiki/Summoning_Sickness). There is no limit to the number of times a creature can attack each turn as long as it is untapped and you can tap it.
+9. During your [End Step](https://duelmasters.fandom.com/wiki/End_Step), [resolve](https://duelmasters.fandom.com/wiki/Resolution) any [abilities](https://duelmasters.fandom.com/wiki/Ability) that [trigger](https://duelmasters.fandom.com/wiki/Trigger) "at the end of your turn". Then your turn ends.
 
 **Important:**
-1. Online play is not supported.
-2. At least 1 player must have _Duel Masters Rules_ in their deck, otherwise the mod will not function properly.
-3. When you host a game and get an error that tells you the number of a particular card is not allowed in your deck, if there are no illegal cards in your deck it is because YGOPro does not allow you to have more than 3 copies of a card with the same [name](https://duelmasters.fandom.com/wiki/Card_Name). Enable `Do not check deck` when creating a game to avoid this error.
-4. YGOPro does not allow you to look at a tapped card in your opponent's mana zone that was put there from a [Private Zone](https://duelmasters.fandom.com/wiki/Private_Zone). You will be able to look at it when it untaps, or is put into a [Public Zone](https://duelmasters.fandom.com/wiki/Public_Zone).
+1. This YGOPro game is only compatible with the Microsoft Windows operating system.
+2. Online play is not supported.
+3. At least 1 player must have _Duel Masters Rules_ in their deck, otherwise the mod will not function properly.
+4. Enable `Do not check Deck` when creating a game to avoid an error due to a player having 4 copies of a card with the same [name](https://duelmasters.fandom.com/wiki/Card_Name) in their deck.
+5. YGOPro does not allow you to look at a tapped card in your opponent's mana zone that was put there from a [Private Zone](https://duelmasters.fandom.com/wiki/Private_Zone). You will be able to look at it when it untaps, or is put into a [Public Zone](https://duelmasters.fandom.com/wiki/Public_Zone).
 
 ## How to win
 1. Attack your opponent with a creature that is not [blocked](https://duelmasters.fandom.com/wiki/Block) (or [attack bended](https://duelmasters.fandom.com/wiki/Attack_Bend)) or removed when they have no shields left.
