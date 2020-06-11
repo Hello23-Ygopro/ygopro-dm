@@ -75,6 +75,7 @@ If you do not build your deck according to the following rules, you will lose th
 - `0x20	Banished` = Mana Zone (tapped cards) (text color = blue)
 - `0x20	Banished` = [Graveyard](https://duelmasters.fandom.com/wiki/Graveyard) (text color = black)
 - `0x40	Extra Deck` = Hyperspatial Zone
+- `0x80	Xyz Material` = [Evolution Source](https://duelmasters.fandom.com/wiki/Evolution_Source)
 </details>
 <details>
 <summary>Phase</summary>
