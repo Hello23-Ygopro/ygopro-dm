@@ -159,8 +159,8 @@ function Rule.ApplyRules(e,tp,eg,ep,ev,re,r,rp)
 	Rule.infinite_hand()
 	--infinite attacks
 	Rule.infinite_attacks()
-	--skip main phase 2
-	Rule.skip_main_phase2()
+	--cannot conduct main phase 2
+	Rule.cannot_main_phase2()
 	--cannot change position
 	Rule.cannot_change_position()
 	--no battle damage
@@ -366,12 +366,12 @@ function Rule.infinite_attacks()
 	e1:SetValue(MAX_NUMBER)
 	Duel.RegisterEffect(e1,0)
 end
---skip main phase 2
-function Rule.skip_main_phase2()
+--cannot conduct main phase 2
+function Rule.cannot_main_phase2()
 	local e1=Effect.GlobalEffect()
 	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
 	e1:SetType(EFFECT_TYPE_FIELD)
-	e1:SetCode(EFFECT_SKIP_M2)
+	e1:SetCode(EFFECT_CANNOT_M2)
 	e1:SetTargetRange(1,1)
 	Duel.RegisterEffect(e1,0)
 end
