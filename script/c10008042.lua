@@ -27,5 +27,5 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Notes
-		* This card's effect is different in the OCG
+	* This card's effect is different in the OCG.
 ]]

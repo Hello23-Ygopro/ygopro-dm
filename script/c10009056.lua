@@ -61,7 +61,7 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		* As soon as Petrova, Channeler of Suns leaves the battle zone, the creatures of the chosen race lose the
-		increase of power.
-		https://duelmasters.fandom.com/wiki/Petrova,_Channeler_of_Suns/Rulings
+	* As soon as Petrova, Channeler of Suns leaves the battle zone, the creatures of the chosen race lose the increase of
+	power.
+	https://duelmasters.fandom.com/wiki/Petrova,_Channeler_of_Suns/Rulings
 ]]

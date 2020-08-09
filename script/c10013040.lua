@@ -28,6 +28,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Jurrac Ptera
-		https://github.com/Fluorohydride/ygopro-scripts/blob/master/c45711266.lua
+	* Jurrac Ptera
+	https://github.com/Fluorohydride/ygopro-scripts/blob/master/c45711266.lua
 ]]

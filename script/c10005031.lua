@@ -23,6 +23,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Notes
-		* This card's Japanese name does not include ハンド ("Hand")
-		https://duelmasters.fandom.com/wiki/Scheming_Hands
+	* This card's Japanese name does not include ハンド ("Hand").
+	https://duelmasters.fandom.com/wiki/Scheming_Hands
 ]]

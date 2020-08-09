@@ -10,6 +10,6 @@ function scard.initial_effect(c)
 end
 --[[
 	Notes
-		* This card's Japanese name does not include プリン ("Prin")
-		https://duelmasters.fandom.com/wiki/Aioria,_Dark_Princess
+	* This card's Japanese name does not include プリン ("Prin").
+	https://duelmasters.fandom.com/wiki/Aioria,_Dark_Princess
 ]]

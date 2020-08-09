@@ -26,6 +26,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. The Shallow Grave
-		https://github.com/Fluorohydride/ygopro-scripts/blob/2f8b6d0/c43434803.lua#L16
+	* The Shallow Grave
+	https://github.com/Fluorohydride/ygopro-scripts/blob/2f8b6d0/c43434803.lua#L16
 ]]

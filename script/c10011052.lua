@@ -35,7 +35,7 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		* Live and Breathe's effect does not trigger itself, as putting a creature into the battle zone with its effect
-		is not summoning.
-		https://duelmasters.fandom.com/wiki/Live_and_Breathe/Rulings
+	* Live and Breathe's effect does not trigger itself, as putting a creature into the battle zone with its effect is not
+	summoning.
+	https://duelmasters.fandom.com/wiki/Live_and_Breathe/Rulings
 ]]

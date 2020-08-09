@@ -29,6 +29,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Kotodama
-		https://github.com/Fluorohydride/ygopro-scripts/blob/master/c19406822.lua
+	* Kotodama
+	https://github.com/Fluorohydride/ygopro-scripts/blob/master/c19406822.lua
 ]]

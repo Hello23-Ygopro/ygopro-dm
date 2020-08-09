@@ -16,5 +16,5 @@ scard.tg1=aux.TargetCardFunction(PLAYER_SELF,scard.retfilter,LOCATION_BZONE,LOCA
 scard.op1=aux.TargetSendtoHandOperation()
 --[[
 	Notes
-		* This card's effect is different in the OCG
+	* This card's effect is different in the OCG.
 ]]

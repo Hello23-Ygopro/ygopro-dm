@@ -24,6 +24,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. The Dragon's Bead
-		https://github.com/Fluorohydride/ygopro-scripts/blob/f24eb49/c92408984.lua#L37
+	* The Dragon's Bead
+	https://github.com/Fluorohydride/ygopro-scripts/blob/f24eb49/c92408984.lua#L37
 ]]

@@ -26,11 +26,10 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		Q: If my opponent attacks one of my Armored Dragons and wins, can I still save it with Kip Chippotto?
+	Q: If my opponent attacks one of my Armored Dragons and wins, can I still save it with Kip Chippotto?
 		A: No, that is not destroyed but rather lost a battle.
-
-		Q: Can I save a creature with 0000+ power from being destroyed?
+	Q: Can I save a creature with 0000+ power from being destroyed?
 		A: No, using Kip Chipotto's destruction substitution ability will not prevent the Dragon from being destroyed due
 		to a game rule that states that creatures with power 0 or less are destroyed.
-		https://duelmasters.fandom.com/wiki/Kip_Chippotto/Rulings
+	https://duelmasters.fandom.com/wiki/Kip_Chippotto/Rulings
 ]]

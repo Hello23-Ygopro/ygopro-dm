@@ -1,9 +1,9 @@
 --Soul Phoenix, Avatar of Unity
 --[[
 	Not fully implemented:
-		1. The effect of Soul Phoenix leaving the battle zone is not substituted or replaced
-		It should not be treated as being destroyed by effects that destroy it (same for any other removal effect)
-		2. The effect of Soul Phoenix leaving the battle zone is not applied when it is added to the shield zone
+	1. The effect of Soul Phoenix leaving the battle zone is not substituted or replaced
+	It should not be treated as being destroyed by effects that destroy it (same for any other removal effect)
+	2. The effect of Soul Phoenix leaving the battle zone is not applied when it is added to the shield zone
 ]]
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)

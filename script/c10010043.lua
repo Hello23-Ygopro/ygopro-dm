@@ -48,6 +48,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Monster Gate
-		https://github.com/Fluorohydride/ygopro-scripts/blob/6418030/c43040603.lua#L26
+	* Monster Gate
+	https://github.com/Fluorohydride/ygopro-scripts/blob/6418030/c43040603.lua#L26
 ]]

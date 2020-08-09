@@ -30,6 +30,6 @@ function scard.con2(e)
 end
 --[[
 	References
-		1. Performapal Dramatic Theater
-		https://github.com/Fluorohydride/ygopro-scripts/blob/d35f462/c55553602.lua#L32
+	* Performapal Dramatic Theater
+	https://github.com/Fluorohydride/ygopro-scripts/blob/d35f462/c55553602.lua#L32
 ]]

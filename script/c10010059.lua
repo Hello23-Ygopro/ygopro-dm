@@ -22,6 +22,6 @@ function scard.return_card(tp)
 end
 --[[
 	References
-		1. Morphing Jar #2
-		https://github.com/Fluorohydride/ygopro-scripts/blob/b2c6aa3/c79106360.lua#L46
+	* Morphing Jar #2
+	https://github.com/Fluorohydride/ygopro-scripts/blob/b2c6aa3/c79106360.lua#L46
 ]]

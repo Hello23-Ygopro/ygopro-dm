@@ -17,8 +17,8 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		Q: This creature and other creatures are destroyed at the same time (by a card such as Vampire Silphy). How many
-		cards can I draw?
+	Q: This creature and other creatures are destroyed at the same time (by a card such as Vampire Silphy). How many
+	cards can I draw?
 		A: You can draw a card for each other creature that's destroyed (just not for Mongrel Man itself).
-		https://duelmasters.fandom.com/wiki/Mongrel_Man/Rulings
+	https://duelmasters.fandom.com/wiki/Mongrel_Man/Rulings
 ]]

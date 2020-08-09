@@ -41,6 +41,6 @@ function scard.con1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Crystolic Potential
-		https://github.com/Fluorohydride/ygopro-scripts/blob/96e0697/c3576031.lua#L33
+	* Crystolic Potential
+	https://github.com/Fluorohydride/ygopro-scripts/blob/96e0697/c3576031.lua#L33
 ]]

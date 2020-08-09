@@ -14,5 +14,5 @@ end
 scard.op1=aux.DestroyOperation(PLAYER_SELF,scard.desfilter,0,LOCATION_BZONE,1)
 --[[
 	Notes
-		* This card's effect is different in the OCG
+	* This card's effect is different in the OCG.
 ]]

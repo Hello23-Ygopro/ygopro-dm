@@ -14,8 +14,8 @@ function scard.initial_effect(c)
 end
 --[[
 	Rulings
-		Q: If i can't untap cards in my mana zone at the start of my turn, when can I untap?
+	Q: If i can't untap cards in my mana zone at the start of my turn, when can I untap?
 		A: You can only untap the cards in your mana zone via a card effect (such as Bolbalzak Ex), but not at the start
 		of your turn.
-		https://duelmasters.fandom.com/wiki/Terradragon_Cusdalf/Rulings
+	https://duelmasters.fandom.com/wiki/Terradragon_Cusdalf/Rulings
 ]]

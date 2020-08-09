@@ -30,6 +30,6 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Prediction Princess Astromorrigan
-		https://github.com/Fluorohydride/ygopro-scripts/blob/b81455f/c5010422.lua#L13
+	* Prediction Princess Astromorrigan
+	https://github.com/Fluorohydride/ygopro-scripts/blob/b81455f/c5010422.lua#L13
 ]]

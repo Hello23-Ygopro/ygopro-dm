@@ -16,6 +16,6 @@ function scard.con1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Double Cipher
-		https://github.com/Fluorohydride/ygopro-scripts/blob/51d2a9e/c63992027.lua#L17
+	* Double Cipher
+	https://github.com/Fluorohydride/ygopro-scripts/blob/51d2a9e/c63992027.lua#L17
 ]]

@@ -40,6 +40,6 @@ function scard.con2(e)
 end
 --[[
 	Notes
-		* The possible increase amount of this card in the game is 1000 to 5000 per turn.
-		https://duelmasters.fandom.com/wiki/Terradragon_Hulcoon_Berga#Notes
+	* The possible increase amount of this card in the game is 1000 to 5000 per turn.
+	https://duelmasters.fandom.com/wiki/Terradragon_Hulcoon_Berga#Notes
 ]]

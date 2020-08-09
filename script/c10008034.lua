@@ -30,6 +30,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Chthonian Blast
-		https://github.com/Fluorohydride/ygopro-scripts/blob/13bb48a/c18271561.lua#L31
+	* Chthonian Blast
+	https://github.com/Fluorohydride/ygopro-scripts/blob/13bb48a/c18271561.lua#L31
 ]]

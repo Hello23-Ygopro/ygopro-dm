@@ -39,9 +39,9 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		Q: I use Kachua's ability to search for an evolution creature that has Dragon in its race, but I don't have a
-		creature it can evolve from in the battle zone. What happens?
+	Q: I use Kachua's ability to search for an evolution creature that has Dragon in its race, but I don't have a
+	creature it can evolve from in the battle zone. What happens?
 		A: An evolution creature can't exist in the battle zone unless it's on top of another creature. You cannot even
 		try to put the evolution creature into the battle zone if you do not have a correct base creature to evolve from.
-		https://duelmasters.fandom.com/wiki/Kachua,_Keeper_of_the_Icegate/Rulings
+	https://duelmasters.fandom.com/wiki/Kachua,_Keeper_of_the_Icegate/Rulings
 ]]

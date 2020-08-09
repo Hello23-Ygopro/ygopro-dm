@@ -28,6 +28,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Ninjitsu Art of Duplication
-		https://github.com/Fluorohydride/ygopro-scripts/blob/db63e8c/c50766506.lua#L41
+	* Ninjitsu Art of Duplication
+	https://github.com/Fluorohydride/ygopro-scripts/blob/db63e8c/c50766506.lua#L41
 ]]

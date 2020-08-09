@@ -22,6 +22,6 @@ end
 scard.op1=aux.TargetCardsOperation(Duel.DMSendtoGrave,REASON_EFFECT)
 --[[
 	References
-		1. Performapal Sellshell Crab
-		https://github.com/Fluorohydride/ygopro-scripts/blob/2c4f0ca/c23377694.lua#L68
+	* Performapal Sellshell Crab
+	https://github.com/Fluorohydride/ygopro-scripts/blob/2c4f0ca/c23377694.lua#L68
 ]]

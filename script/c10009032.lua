@@ -35,6 +35,6 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Mooyan Curry
-		https://github.com/Fluorohydride/ygopro-scripts/blob/master/c58074572.lua
+	* Mooyan Curry
+	https://github.com/Fluorohydride/ygopro-scripts/blob/master/c58074572.lua
 ]]

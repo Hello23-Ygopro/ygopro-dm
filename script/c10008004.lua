@@ -49,8 +49,8 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		Q: If one of my other creature's break a shield, and the shield broken is a Terror Pit that is used to destroy
-		Magmadragon Jagalzor, do my other creatures still gain its Turbo Rush ability of speed attacker that turn?
+	Q: If one of my other creature's break a shield, and the shield broken is a Terror Pit that is used to destroy
+	Magmadragon Jagalzor, do my other creatures still gain its Turbo Rush ability of speed attacker that turn?
 		A: No. Magmadragon Jagalzor's effect terminates once he leaves the field.
-		https://duelmasters.fandom.com/wiki/Magmadragon_Jagalzor/Rulings
+	https://duelmasters.fandom.com/wiki/Magmadragon_Jagalzor/Rulings
 ]]

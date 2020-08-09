@@ -28,8 +28,8 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	Rulings
-		Q: I choose an evolution creature in my hand, but I don't have a creature of the correct race in the battle zone.
-		What happens?
+	Q: I choose an evolution creature in my hand, but I don't have a creature of the correct race in the battle zone.
+	What happens?
 		A: You can't put that evolution creature into the battle zone. It stays in your hand.
-		https://duelmasters.fandom.com/wiki/Rapid_Reincarnation/Rulings
+	https://duelmasters.fandom.com/wiki/Rapid_Reincarnation/Rulings
 ]]

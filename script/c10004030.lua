@@ -12,6 +12,6 @@ function scard.initial_effect(c)
 end
 --[[
 	Notes
-		* "Princess" is a word that can cause creatures to become "Prin" creatures
-		https://duelmasters.fandom.com/wiki/Prin
+	* "Princess" is a word that can cause creatures to become "Prin" creatures.
+	https://duelmasters.fandom.com/wiki/Prin
 ]]

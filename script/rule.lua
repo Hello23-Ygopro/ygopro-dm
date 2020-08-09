@@ -1,6 +1,6 @@
+Rule={}
 --register rules
 --Not fully implemented: Tap a card to have it attack
-Rule={}
 function Rule.RegisterRules(c)
 	local e1=Effect.CreateEffect(c)
 	e1:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE+EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_NO_TURN_RESET)
@@ -546,17 +546,17 @@ function Rule.play_cost_equal_civ_sum()
 end
 --[[
 	References
-		1. A creature that has a power 0 or less is immediately destroyed
-			- Call of Darkness
-			https://github.com/Fluorohydride/ygopro-scripts/blob/9c40273/c78637313.lua#L12
-			- Rivalry of Warlords
-			https://github.com/Fluorohydride/ygopro-scripts/blob/55de4af/c90846359.lua#L14
-		2. You win the game when your opponent has no cards left in their deck
-			- Ghostrick Angel of Mischief
-			https://github.com/Fluorohydride/ygopro-scripts/blob/master/c53334641.lua#L10
-		3. Rule: A card sent to the graveyard is banished instead
-			- Macro Cosmos
-			https://github.com/Fluorohydride/ygopro-scripts/blob/2fcfdf8/c30241314.lua#L16
-		4. A card that costs 0, or costs below the amount of civilizations printed on the card can't be used at all
-		https://duelmasters.fandom.com/wiki/Cost_Reduction#Rules
+	1. A creature that has a power 0 or less is immediately destroyed
+	* Call of Darkness
+	https://github.com/Fluorohydride/ygopro-scripts/blob/9c40273/c78637313.lua#L12
+	* Rivalry of Warlords
+	https://github.com/Fluorohydride/ygopro-scripts/blob/55de4af/c90846359.lua#L14
+	2. You win the game when your opponent has no cards left in their deck
+	* Ghostrick Angel of Mischief
+	https://github.com/Fluorohydride/ygopro-scripts/blob/master/c53334641.lua#L10
+	3. Rule: A card sent to the graveyard is banished instead
+	* Macro Cosmos
+	https://github.com/Fluorohydride/ygopro-scripts/blob/2fcfdf8/c30241314.lua#L16
+	4. A card that costs 0, or costs below the amount of civilizations printed on the card can't be used at all
+	https://duelmasters.fandom.com/wiki/Cost_Reduction#Rules
 ]]

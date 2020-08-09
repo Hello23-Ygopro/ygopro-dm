@@ -40,8 +40,8 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Dark Magician of Chaos
-		https://github.com/Fluorohydride/ygopro-scripts/blob/a0db0e4/c40737112.lua#L21
-		2. Neo-Spacian Grand Mole
-		https://github.com/Fluorohydride/ygopro-scripts/blob/6324c1c/c80344569.lua#L16
+	* Dark Magician of Chaos
+	https://github.com/Fluorohydride/ygopro-scripts/blob/a0db0e4/c40737112.lua#L21
+	* Neo-Spacian Grand Mole
+	https://github.com/Fluorohydride/ygopro-scripts/blob/6324c1c/c80344569.lua#L16
 ]]

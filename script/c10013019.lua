@@ -115,8 +115,8 @@ function scard.op2(e,tp,eg,ep,ev,re,r,rp)
 end
 --[[
 	References
-		1. Phantom of Chaos
-		https://github.com/Fluorohydride/ygopro-scripts/blob/c04a9da/c30312361.lua#L40
-		2. Number 8: Heraldic King Genom-Heritage
-		https://github.com/Fluorohydride/ygopro-scripts/blob/2c4f0ca/c47387961.lua#L32
+	* Number 8: Heraldic King Genom-Heritage
+	https://github.com/Fluorohydride/ygopro-scripts/blob/2c4f0ca/c47387961.lua#L32
+	* Phantom of Chaos
+	https://github.com/Fluorohydride/ygopro-scripts/blob/c04a9da/c30312361.lua#L40
 ]]
