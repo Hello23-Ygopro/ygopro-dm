@@ -6,9 +6,9 @@ function scard.initial_effect(c)
 	--shield trigger
 	aux.EnableShieldTrigger(c)
 	--return
-	aux.AddSpellCastEffect(c,0,nil,aux.SendtoHandOperation(PLAYER_SELF,aux.ManaZoneFilter(scard.retfilter),LOCATION_MZONE,0,1))
+	aux.AddSpellCastEffect(c,0,nil,aux.SendtoHandOperation(PLAYER_SELF,aux.ManaZoneFilter(scard.thfilter),LOCATION_MZONE,0,1))
 end
 --return
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsCreature() and c:IsManaCostAbove(6)
 end

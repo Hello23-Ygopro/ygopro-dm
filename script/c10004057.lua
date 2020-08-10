@@ -10,8 +10,8 @@ function scard.initial_effect(c)
 	aux.EnableUpdatePower(c,2000,nil,LOCATION_BZONE,LOCATION_BZONE,aux.TargetBoolFunction(Card.DMIsRace,RACE_ANGEL_COMMAND,RACE_DEMON_COMMAND))
 end
 --return
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:DMIsRace(RACE_ANGEL_COMMAND,RACE_DEMON_COMMAND) and c:IsAbleToHand()
 end
-scard.tg1=aux.CheckCardFunction(aux.DMGraveFilter(scard.retfilter),LOCATION_GRAVE,0)
-scard.op1=aux.SendtoHandOperation(nil,aux.DMGraveFilter(scard.retfilter),LOCATION_GRAVE,0)
+scard.tg1=aux.CheckCardFunction(aux.DMGraveFilter(scard.thfilter),LOCATION_GRAVE,0)
+scard.op1=aux.SendtoHandOperation(nil,aux.DMGraveFilter(scard.thfilter),LOCATION_GRAVE,0)

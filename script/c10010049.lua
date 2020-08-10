@@ -11,7 +11,7 @@ end
 function scard.tmfilter(c,e)
 	return c:IsAbleToMZone() and c:IsCanBeEffectTarget(e)
 end
-function scard.retfilter(c,e)
+function scard.thfilter(c,e)
 	return c:IsAbleToHand() and c:IsCanBeEffectTarget(e)
 end
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
@@ -28,7 +28,7 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 		return
 	end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_RTOHAND)
-	local g2=Duel.SelectMatchingCard(tp,aux.ManaZoneFilter(scard.retfilter),tp,0,LOCATION_MZONE,1,1,nil,e)
+	local g2=Duel.SelectMatchingCard(tp,aux.ManaZoneFilter(scard.thfilter),tp,0,LOCATION_MZONE,1,1,nil,e)
 	if g2:GetCount()==0 then return end
 	Duel.SetTargetCard(g2)
 	Duel.SendtoHand(g2,PLAYER_OWNER,REASON_EFFECT)

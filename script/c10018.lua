@@ -12,11 +12,11 @@ function scard.initial_effect(c)
 end
 --return
 scard.con1=aux.TurnPlayerCondition(PLAYER_SELF)
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsFaceup() and c:IsAbleToHand()
 end
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
-	local g=Duel.GetMatchingGroup(scard.retfilter,tp,LOCATION_BZONE,LOCATION_BZONE,nil):RandomSelect(tp,1)
+	local g=Duel.GetMatchingGroup(scard.thfilter,tp,LOCATION_BZONE,LOCATION_BZONE,nil):RandomSelect(tp,1)
 	Duel.HintSelection(g)
 	Duel.SendtoHand(g,PLAYER_OWNER,REASON_EFFECT)
 end

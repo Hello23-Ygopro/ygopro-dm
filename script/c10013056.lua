@@ -13,7 +13,7 @@ function scard.initial_effect(c)
 	--get ability (attack untapped)
 	aux.EnableAttackUntapped(c,nil,nil,LOCATION_BZONE,0,scard.tg1)
 	--return
-	aux.AddSingleTriggerEffectLeaveBZone(c,0,nil,nil,aux.SendtoHandOperation(nil,aux.DMGraveFilter(scard.retfilter),LOCATION_GRAVE,0))
+	aux.AddSingleTriggerEffectLeaveBZone(c,0,nil,nil,aux.SendtoHandOperation(nil,aux.DMGraveFilter(scard.thfilter),LOCATION_GRAVE,0))
 end
 scard.evolution_race_list={RACE_FIRE_BIRD,RACE_ARMORED_DRAGON}
 scard.evolution_race_cat_list={RACECAT_DRAGON}
@@ -25,6 +25,6 @@ function scard.tg1(e,c)
 	return c:DMIsRace(RACE_PHOENIX) or c:IsRaceCategory(RACECAT_DRAGON)
 end
 --return
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsCreature() and not c:IsEvolution() and c:IsCivilization(CIVILIZATION_FIRE)
 end

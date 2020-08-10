@@ -12,7 +12,7 @@ end
 function scard.desfilter(c)
 	return c:IsFaceup() and c:IsCivilization(CIVILIZATION_DARKNESS)
 end
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsCreature() and c:IsAbleToHand()
 end
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
@@ -22,7 +22,7 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	Duel.HintSelection(g1)
 	if Duel.Destroy(g1,REASON_EFFECT)==0 then return end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_RTOHAND)
-	local g2=Duel.SelectMatchingCard(tp,aux.ManaZoneFilter(scard.retfilter),tp,LOCATION_MZONE,0,1,1,nil)
+	local g2=Duel.SelectMatchingCard(tp,aux.ManaZoneFilter(scard.thfilter),tp,LOCATION_MZONE,0,1,1,nil)
 	if g2:GetCount()==0 then return end
 	Duel.SendtoHand(g2,PLAYER_OWNER,REASON_EFFECT)
 	Duel.ConfirmCards(1-tp,g2)

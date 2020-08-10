@@ -10,8 +10,8 @@ function scard.initial_effect(c)
 end
 --return
 scard.con1=aux.AND(aux.UnblockedCondition,aux.AttackPlayerCondition)
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsFaceup() and c:IsAbleToHand()
 end
-scard.tg1=aux.TargetCardFunction(PLAYER_SELF,scard.retfilter,LOCATION_BZONE,LOCATION_BZONE,1,1,HINTMSG_RTOHAND)
+scard.tg1=aux.TargetCardFunction(PLAYER_SELF,scard.thfilter,LOCATION_BZONE,LOCATION_BZONE,1,1,HINTMSG_RTOHAND)
 scard.op1=aux.TargetSendtoHandOperation()

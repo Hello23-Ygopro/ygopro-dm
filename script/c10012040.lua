@@ -12,8 +12,8 @@ function scard.initial_effect(c)
 	aux.EnableCannotAttack(c)
 end
 --return
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsFaceup() and c:IsAbleToHand()
 end
-scard.tg1=aux.TargetCardFunction(PLAYER_OPPO,scard.retfilter,0,LOCATION_BZONE,1,1,HINTMSG_RTOHAND)
+scard.tg1=aux.TargetCardFunction(PLAYER_OPPO,scard.thfilter,0,LOCATION_BZONE,1,1,HINTMSG_RTOHAND)
 scard.op1=aux.TargetSendtoHandOperation()

@@ -7,8 +7,8 @@ function scard.initial_effect(c)
 	aux.AddSpellCastEffect(c,0,scard.tg1,scard.op1,EFFECT_FLAG_CARD_TARGET)
 end
 --return
-function scard.retfilter(c)
+function scard.thfilter(c)
 	return c:IsFaceup() and c:IsAbleToHand()
 end
-scard.tg1=aux.TargetCardFunction(PLAYER_SELF,scard.retfilter,LOCATION_BZONE,LOCATION_BZONE,0,2,HINTMSG_RTOHAND)
+scard.tg1=aux.TargetCardFunction(PLAYER_SELF,scard.thfilter,LOCATION_BZONE,LOCATION_BZONE,0,2,HINTMSG_RTOHAND)
 scard.op1=aux.TargetSendtoHandOperation()
