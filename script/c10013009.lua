@@ -3,6 +3,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_MERFOLK)
+	aux.AddEvolutionRaceList(c,RACE_MERFOLK)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,4 +13,3 @@ function scard.initial_effect(c)
 	--cannot be blocked
 	aux.EnableCannotBeBlocked(c,aux.NOT(aux.CannotBeBlockedBoolFunction(Card.IsEvolution)))
 end
-scard.evolution_race_list={RACE_MERFOLK}

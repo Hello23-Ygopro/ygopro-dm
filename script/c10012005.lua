@@ -8,6 +8,8 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_PHOENIX)
+	aux.AddEvolutionRaceList(c,RACE_FIRE_BIRD,RACE_EARTH_DRAGON)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_DRAGON)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--vortex evolution
@@ -18,8 +20,6 @@ function scard.initial_effect(c)
 	--leave replace (separate evolution source)
 	aux.AddSingleReplaceEffectLeaveBZone(c,0,scard.op1)
 end
-scard.evolution_race_list={RACE_FIRE_BIRD,RACE_EARTH_DRAGON}
-scard.evolution_race_cat_list={RACECAT_DRAGON}
 --vortex evolution
 scard.evofilter1=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_FIRE_BIRD)
 scard.evofilter2=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_EARTH_DRAGON)

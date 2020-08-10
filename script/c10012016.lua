@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GLADIATOR,RACE_EARTH_EATER)
+	aux.AddEvolutionRaceList(c,RACE_GLADIATOR,RACE_EARTH_EATER)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--draw
 	aux.AddTriggerEffect(c,0,EVENT_CUSTOM+EVENT_BLOCK,true,aux.DrawTarget(PLAYER_SELF),aux.DrawOperation(PLAYER_SELF,1),nil,scard.con1)
 end
-scard.evolution_race_list={RACE_GLADIATOR,RACE_EARTH_EATER}
 --draw
 function scard.cfilter(c)
 	return c:IsFaceup() and c:DMIsRace(RACE_GLADIATOR,RACE_EARTH_EATER)

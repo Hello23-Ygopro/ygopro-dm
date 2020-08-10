@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_SURVIVOR)
+	aux.AddEvolutionRaceList(c,RACE_SURVIVOR)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,4 +10,3 @@ function scard.initial_effect(c)
 	--crew breaker
 	aux.EnableCrewBreaker(c,aux.FilterBoolFunction(Card.DMIsRace,RACE_SURVIVOR))
 end
-scard.evolution_race_list={RACE_SURVIVOR}

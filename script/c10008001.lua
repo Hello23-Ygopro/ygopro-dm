@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_MECHA_THUNDER)
+	aux.AddEvolutionRaceList(c,RACE_MECHA_THUNDER)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--blocker
@@ -13,4 +14,3 @@ function scard.initial_effect(c)
 	--cannot attack player
 	aux.EnableCannotAttackPlayer(c)
 end
-scard.evolution_race_list={RACE_MECHA_THUNDER}

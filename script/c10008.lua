@@ -5,6 +5,8 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_CYBER_LORD)
 	aux.AddRaceCategory(c,RACECAT_CYBER)
+	aux.AddEvolutionRaceList(c,RACE_CYBER_LORD)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_CYBER)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,8 +14,6 @@ function scard.initial_effect(c)
 	--to shield zone, to hand
 	aux.AddSingleTriggerEffect(c,0,EVENT_COME_INTO_PLAY,true,scard.tg1,scard.op1)
 end
-scard.evolution_race_list={RACE_CYBER_LORD}
-scard.evolution_race_cat_list={RACECAT_CYBER}
 --to shield zone, to hand
 scard.tg1=aux.CheckCardFunction(Card.IsAbleToSZone,LOCATION_HAND,0)
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)

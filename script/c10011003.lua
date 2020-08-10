@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_SNOW_FAERIE)
+	aux.AddEvolutionRaceList(c,RACE_SNOW_FAERIE)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--return
 	aux.AddSingleTriggerEffect(c,0,EVENT_COME_INTO_PLAY,nil,nil,scard.op1)
 end
-scard.evolution_race_list={RACE_SNOW_FAERIE}
 --return
 function scard.thfilter(c)
 	return c:DMIsRace(RACE_SNOW_FAERIE) and c:IsAbleToHand()

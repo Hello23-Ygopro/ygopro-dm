@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_DEVIL_MASK)
+	aux.AddEvolutionRaceList(c,RACE_DEVIL_MASK)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--double breaker
 	aux.EnableBreaker(c,EFFECT_DOUBLE_BREAKER)
 end
-scard.evolution_race_list={RACE_DEVIL_MASK}
 --destroy
 --Note: Moved card targeting to the operation function in the event opponent also has Evil Incarnate in the battle zone
 --This prevents the turn player from choosing the same monster again to destroy as the chain resolves

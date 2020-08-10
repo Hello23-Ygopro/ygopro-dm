@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_SURVIVOR)
+	aux.AddEvolutionRaceList(c,RACE_SURVIVOR)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--shield trigger
@@ -11,4 +12,3 @@ function scard.initial_effect(c)
 	--add race
 	aux.EnableAddRace(c,RACE_SURVIVOR,LOCATION_BZONE,0)
 end
-scard.evolution_race_list={RACE_SURVIVOR}

@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GHOST)
+	aux.AddEvolutionRaceList(c,RACE_GHOST)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,4 +10,3 @@ function scard.initial_effect(c)
 	--get ability (slayer)
 	aux.AddStaticEffectSlayer(c,LOCATION_BZONE,0,aux.TargetBoolFunction(Card.DMIsRace,RACE_GHOST))
 end
-scard.evolution_race_list={RACE_GHOST}

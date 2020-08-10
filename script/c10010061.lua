@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GHOST)
+	aux.AddEvolutionRaceList(c,RACE_GHOST)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--double breaker
 	aux.EnableBreaker(c,EFFECT_DOUBLE_BREAKER)
 end
-scard.evolution_race_list={RACE_GHOST}
 --discard
 function scard.con1(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.GetAttacker():IsControler(tp)

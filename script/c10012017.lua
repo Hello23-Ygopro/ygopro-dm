@@ -3,6 +3,8 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_CYBER_LORD,RACE_HEDRIAN)
 	aux.AddRaceCategory(c,RACECAT_CYBER)
+	aux.AddEvolutionRaceList(c,RACE_CYBER_LORD,RACE_HEDRIAN)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_CYBER)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,5 +14,3 @@ function scard.initial_effect(c)
 	--get ability (cannot be blocked)
 	aux.AddStaticEffectCannotBeBlocked(c,LOCATION_BZONE,0,aux.TargetBoolFunction(Card.DMIsRace,RACE_CYBER_LORD,RACE_HEDRIAN))
 end
-scard.evolution_race_list={RACE_CYBER_LORD,RACE_HEDRIAN}
-scard.evolution_race_cat_list={RACECAT_CYBER}

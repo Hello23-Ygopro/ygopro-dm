@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GLADIATOR)
+	aux.AddEvolutionRaceList(c,RACE_GLADIATOR)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,4 +12,3 @@ function scard.initial_effect(c)
 	--cannot be targeted
 	aux.EnableCannotBeTargeted(c)
 end
-scard.evolution_race_list={RACE_GLADIATOR}

@@ -3,6 +3,8 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_DEMON_COMMAND)
 	aux.AddNameCategory(c,NAMECAT_BALLOM)
+	aux.AddEvolutionRaceList(c,RACE_DEMON_COMMAND)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_COMMAND)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,8 +14,6 @@ function scard.initial_effect(c)
 	--destroy
 	aux.AddSingleTriggerEffect(c,0,EVENT_COME_INTO_PLAY,nil,nil,aux.DestroyOperation(nil,scard.desfilter,LOCATION_BZONE,LOCATION_BZONE))
 end
-scard.evolution_race_list={RACE_DEMON_COMMAND}
-scard.evolution_race_cat_list={RACECAT_COMMAND}
 --destroy
 function scard.desfilter(c)
 	return c:IsFaceup() and not c:IsCivilization(CIVILIZATION_DARKNESS)

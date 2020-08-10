@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_HUMAN)
+	aux.AddEvolutionRaceList(c,RACE_HUMAN)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--power up
 	aux.EnableUpdatePower(c,scard.val1,aux.SelfAttackerCondition)
 end
-scard.evolution_race_list={RACE_HUMAN}
 --power up
 function scard.cfilter(c)
 	return c:IsFaceup() and c:DMIsRace(RACE_HUMAN)

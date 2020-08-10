@@ -188,6 +188,38 @@ function Auxiliary.AddNameCategory(c,...)
 		end
 	end
 end
+--register the race(s) an evolution creature evolves from
+--required for Auxiliary.IsEvolutionListRace (reserved)
+function Auxiliary.AddEvolutionRaceList(c,...)
+	if c:IsStatus(STATUS_COPYING_EFFECT) then return end
+	if c.evolution_race_list==nil then
+		local mt=getmetatable(c)
+		mt.evolution_race_list={}
+		for _,racename in ipairs{...} do
+			table.insert(mt.evolution_race_list,racename)
+		end
+	else
+		for _,racename in ipairs{...} do
+			table.insert(c.evolution_race_list,racename)
+		end
+	end
+end
+--register the race category(s) an evolution creature evolves from
+--required for Auxiliary.IsEvolutionListRaceCategory
+function Auxiliary.AddEvolutionRaceCategoryList(c,...)
+	if c:IsStatus(STATUS_COPYING_EFFECT) then return end
+	if c.evolution_race_cat_list==nil then
+		local mt=getmetatable(c)
+		mt.evolution_race_cat_list={}
+		for _,racecat in ipairs{...} do
+			table.insert(mt.evolution_race_cat_list,racecat)
+		end
+	else
+		for _,racecat in ipairs{...} do
+			table.insert(c.evolution_race_cat_list,racecat)
+		end
+	end
+end
 --add a description to a card that lists the effects it gained
 --Note: The description is removed if con_func returns false
 function Auxiliary.AddEffectDescription(c,desc_id,con_func)

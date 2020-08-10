@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_DRAGO_NOID)
+	aux.AddEvolutionRaceList(c,RACE_DRAGO_NOID)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--get ability (tap ability - get ability)
 	aux.AddStaticEffectTapAbility(c,0,scard.tg1,scard.op1,LOCATION_BZONE,0,scard.tg2)
 end
-scard.evolution_race_list={RACE_DRAGO_NOID}
 --get ability (tap ability - get ability)
 function scard.abfilter(c)
 	return c:IsFaceup() and c:IsCivilization(CIVILIZATION_FIRE)

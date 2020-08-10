@@ -3,6 +3,7 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_EARTH_DRAGON)
 	aux.AddRaceCategory(c,RACECAT_DRAGON)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_DRAGON)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,4 +13,3 @@ function scard.initial_effect(c)
 	--double breaker
 	aux.EnableBreaker(c,EFFECT_DOUBLE_BREAKER)
 end
-scard.evolution_race_cat_list={RACECAT_DRAGON}

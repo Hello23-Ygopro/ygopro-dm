@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_WILD_VEGGIES,RACE_RAINBOW_PHANTOM)
+	aux.AddEvolutionRaceList(c,RACE_WILD_VEGGIES,RACE_RAINBOW_PHANTOM)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--untap
 	aux.AddTriggerEffect(c,0,EVENT_PHASE+PHASE_END,true,scard.tg1,scard.op1,nil,scard.con1)
 end
-scard.evolution_race_list={RACE_WILD_VEGGIES,RACE_RAINBOW_PHANTOM}
 --untap
 scard.con1=aux.TurnPlayerCondition(PLAYER_SELF)
 function scard.posfilter(c)

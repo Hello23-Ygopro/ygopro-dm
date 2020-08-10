@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_LEVIATHAN)
+	aux.AddEvolutionRaceList(c,RACE_LEVIATHAN)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,4 +12,3 @@ function scard.initial_effect(c)
 	--get ability (cannot be blocked)
 	aux.AddStaticEffectCannotBeBlocked(c,LOCATION_BZONE,0,aux.TargetBoolFunctionExceptSelf(Card.IsCivilization,CIVILIZATION_WATER))
 end
-scard.evolution_race_list={RACE_LEVIATHAN}

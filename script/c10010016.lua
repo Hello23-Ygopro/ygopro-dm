@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_INITIATE)
+	aux.AddEvolutionRaceList(c,RACE_INITIATE)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -17,7 +18,6 @@ function scard.initial_effect(c)
 	e1:SetOperation(scard.op1)
 	c:RegisterEffect(e1)
 end
-scard.evolution_race_list={RACE_INITIATE}
 --break replace (discard)
 function scard.repfilter(c,tp)
 	return c:IsLocation(LOCATION_SZONE) and c:IsControler(tp)

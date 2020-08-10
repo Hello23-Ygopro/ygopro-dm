@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_HUMAN)
+	aux.AddEvolutionRaceList(c,RACE_HUMAN)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--destroy
 	aux.AddSingleTriggerEffect(c,0,EVENT_COME_INTO_PLAY,true,scard.tg1,scard.op1,EFFECT_FLAG_CARD_TARGET)
 end
-scard.evolution_race_list={RACE_HUMAN}
 --destroy
 function scard.desfilter(c)
 	return c:IsFaceup() and c:IsPowerBelow(4000)

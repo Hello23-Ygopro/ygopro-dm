@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GHOST)
+	aux.AddEvolutionRaceList(c,RACE_GHOST)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--destroy replace (return)
 	aux.AddReplaceEffectDestroy(c,0,scard.tg1,scard.op1,scard.val1)
 end
-scard.evolution_race_list={RACE_GHOST}
 --destroy replace (return)
 function scard.repfilter(c,tp)
 	return c:IsLocation(LOCATION_BZONE) and c:IsFaceup() and c:IsCivilization(CIVILIZATION_DARKNESS)

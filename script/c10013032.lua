@@ -3,6 +3,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_SPIRIT_QUARTZ)
+	aux.AddEvolutionRaceList(c,RACE_SPIRIT_QUARTZ)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,7 +13,6 @@ function scard.initial_effect(c)
 	--double breaker
 	aux.EnableBreaker(c,EFFECT_DOUBLE_BREAKER)
 end
-scard.evolution_race_list={RACE_SPIRIT_QUARTZ}
 --confirm deck (to hand or to mana zone)
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	if Duel.GetFieldGroupCount(tp,LOCATION_DECK,0)==0 then return end

@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_GIANT_INSECT)
+	aux.AddEvolutionRaceList(c,RACE_GIANT_INSECT,RACE_GIANT)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -9,7 +10,6 @@ function scard.initial_effect(c)
 	--destroy replace (to mana zone)
 	aux.AddReplaceEffectDestroy(c,0,scard.tg1,scard.op1,scard.val1)
 end
-scard.evolution_race_list={RACE_GIANT_INSECT,RACE_GIANT}
 --destroy replace (to mana zone)
 function scard.repfilter(c,tp)
 	return c:IsLocation(LOCATION_BZONE) and c:IsFaceup() and c:IsCivilization(CIVILIZATION_NATURE)

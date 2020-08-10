@@ -3,6 +3,8 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_PHOENIX)
+	aux.AddEvolutionRaceList(c,RACE_FIRE_BIRD,RACE_ARMORED_DRAGON)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_DRAGON)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--vortex evolution
@@ -15,8 +17,6 @@ function scard.initial_effect(c)
 	--return
 	aux.AddSingleTriggerEffectLeaveBZone(c,0,nil,nil,aux.SendtoHandOperation(nil,aux.DMGraveFilter(scard.thfilter),LOCATION_GRAVE,0))
 end
-scard.evolution_race_list={RACE_FIRE_BIRD,RACE_ARMORED_DRAGON}
-scard.evolution_race_cat_list={RACECAT_DRAGON}
 --vortex evolution
 scard.evofilter1=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_FIRE_BIRD)
 scard.evofilter2=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_ARMORED_DRAGON)

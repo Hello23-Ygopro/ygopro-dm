@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_XENOPARTS,RACE_GIANT_INSECT)
+	aux.AddEvolutionRaceList(c,RACE_XENOPARTS,RACE_GIANT_INSECT,RACE_GIANT)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--to grave
 	aux.AddTriggerEffect(c,0,EVENT_BATTLE_CONFIRM,nil,scard.tg1,scard.op1,EFFECT_FLAG_CARD_TARGET,scard.con1)
 end
-scard.evolution_race_list={RACE_XENOPARTS,RACE_GIANT_INSECT,RACE_GIANT}
 --to grave
 function scard.con1(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetAttacker()

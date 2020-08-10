@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_BEAST_FOLK)
+	aux.AddEvolutionRaceList(c,RACE_BEAST_FOLK)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -11,7 +12,6 @@ function scard.initial_effect(c)
 	--get ability
 	aux.AddSingleTriggerEffect(c,1,EVENT_CUSTOM+EVENT_BECOME_BLOCKED,nil,nil,scard.op2)
 end
-scard.evolution_race_list={RACE_BEAST_FOLK}
 --get ability
 function scard.abfilter(c)
 	return c:IsFaceup() and c:IsUntapped() and c:IsHasEffect(EFFECT_BLOCKER)

@@ -2,6 +2,7 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_ARMORED_WYVERN)
+	aux.AddEvolutionRaceList(c,RACE_ARMORED_WYVERN)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -13,7 +14,6 @@ function scard.initial_effect(c)
 	--return
 	aux.EnableTurnEndSelfReturn(c)
 end
-scard.evolution_race_list={RACE_ARMORED_WYVERN}
 --get ability
 scard.con1=aux.AND(aux.UnblockedCondition,aux.AttackPlayerCondition)
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)

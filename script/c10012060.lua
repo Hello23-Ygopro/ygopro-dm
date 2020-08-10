@@ -2,6 +2,8 @@
 local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_PEGASUS)
+	aux.AddEvolutionRaceList(c,RACE_HORNED_BEAST,RACE_ANGEL_COMMAND)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_COMMAND)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--vortex evolution
@@ -13,8 +15,6 @@ function scard.initial_effect(c)
 	--triple breaker
 	aux.EnableBreaker(c,EFFECT_TRIPLE_BREAKER)
 end
-scard.evolution_race_list={RACE_HORNED_BEAST,RACE_ANGEL_COMMAND}
-scard.evolution_race_cat_list={RACECAT_COMMAND}
 --vortex evolution
 scard.evofilter1=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_HORNED_BEAST)
 scard.evofilter2=aux.FilterBoolFunction(Card.IsEvolutionRace,RACE_ANGEL_COMMAND)

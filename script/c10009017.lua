@@ -3,6 +3,8 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_CYBER_LORD)
 	aux.AddRaceCategory(c,RACECAT_CYBER)
+	aux.AddEvolutionRaceList(c,RACE_CYBER_LORD)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_CYBER)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -18,8 +20,6 @@ function scard.initial_effect(c)
 	e1:SetOperation(scard.op2)
 	c:RegisterEffect(e1)
 end
-scard.evolution_race_list={RACE_CYBER_LORD}
-scard.evolution_race_cat_list={RACECAT_CYBER}
 --return
 function scard.cfilter(c,tp)
 	return c:IsFaceup() and c:GetSummonPlayer()==tp

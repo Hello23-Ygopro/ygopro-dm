@@ -3,6 +3,7 @@ local scard,sid=aux.GetID()
 function scard.initial_effect(c)
 	aux.AddRace(c,RACE_ARMORED_DRAGON)
 	aux.AddRaceCategory(c,RACECAT_DRAGON)
+	aux.AddEvolutionRaceCategoryList(c,RACECAT_DRAGON)
 	--creature
 	aux.EnableCreatureAttribute(c)
 	--evolution
@@ -12,7 +13,6 @@ function scard.initial_effect(c)
 	--triple breaker
 	aux.EnableBreaker(c,EFFECT_TRIPLE_BREAKER)
 end
-scard.evolution_race_cat_list={RACECAT_DRAGON}
 --to grave
 scard.tg1=aux.TargetCardFunction(PLAYER_SELF,aux.ManaZoneFilter(Card.DMIsAbleToGrave),0,LOCATION_MZONE,0,2,HINTMSG_TOGRAVE)
 scard.op1=aux.TargetCardsOperation(Duel.DMSendtoGrave,REASON_EFFECT)
