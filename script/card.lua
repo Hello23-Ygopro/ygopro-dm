@@ -18,6 +18,7 @@ function Card.IsAttack(c,atk)
 	end
 end
 --check if a card has a particular race or name category
+--Note: Overwritten to check for an infinite number of races and name categories
 local card_is_set_card=Card.IsSetCard
 function Card.IsSetCard(c,...)
 	local setname_list={...}

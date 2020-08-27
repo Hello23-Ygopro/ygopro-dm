@@ -635,15 +635,15 @@ EFFECT_FLAG_REPEAT				=0x200000	--(unused)
 EFFECT_FLAG_NO_TURN_RESET		=0x400000	--"Once while face-up on the field"
 EFFECT_FLAG_EVENT_PLAYER		=0x800000	--(unused)
 EFFECT_FLAG_OWNER_RELATE		=0x1000000	--(unused)
-EFFECT_FLAG_AVAILABLE_BD		=0x2000000	--(deprecated, only available in YGOPro Percy)
+EFFECT_FLAG_AVAILABLE_BD		=0x2000000	--(N/A)
 EFFECT_FLAG_CLIENT_HINT			=0x4000000	--Enables a tooltip of the effect (can only be used outside initial_effect)
-EFFECT_FLAG_CHAIN_UNIQUE		=0x8000000	--(deprecated, only available in YGOPro Percy)
+EFFECT_FLAG_CHAIN_UNIQUE		=0x8000000	--(N/A)
 EFFECT_FLAG_LIMIT_ZONE			=0x10000000	--(unused, not available in YGOPro Percy)
 EFFECT_FLAG_CHAIN_LIMIT			=0x20000000	--Cannot be Chained to
 EFFECT_FLAG_CHARGE				=0x40000000	--Non-"Charge" spell that is put into the mana zone instead of the graveyard
 EFFECT_FLAG_IMMEDIATELY_APPLY	=0x80000000	--(unused)
 
-EFFECT_FLAG2_NAGA				=0x0001		--(deprecated)
+EFFECT_FLAG2_NAGA				=0x0001		--(N/A)
 EFFECT_FLAG2_COF				=0x0002		--(unused)
 EFFECT_FLAG2_MAJESTIC_MUST_COPY	=0x80000000	--(unused, only available in YGOPro Percy)
 --Effect Code

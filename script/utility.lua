@@ -482,7 +482,11 @@ function Auxiliary.CannotBeBattleTargetValue(e,c)
 	local t={c:IsHasEffect(EFFECT_ATTACK_UNTAPPED)}
 	local civ=0
 	for _,te in pairs(t) do
-		civ=civ+te:GetValue()
+		if type(te:GetValue())=="function" then
+			civ=civ+te:GetValue()(te,c)
+		else
+			civ=civ+te:GetValue()
+		end
 	end
 	if civ>0 then
 		return not e:GetHandler():IsCivilization(civ)
