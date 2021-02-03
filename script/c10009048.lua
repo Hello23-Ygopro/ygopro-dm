@@ -9,5 +9,5 @@ end
 --to mana zone
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	local ct=Duel.GetManaCount(tp)
-	Duel.SendDecktoptoMZone(tp,ct,POS_FACEUP_TAPPED,REASON_EFFECT)
+	Duel.SendDecktoMZone(tp,ct,POS_FACEUP_TAPPED,REASON_EFFECT)
 end

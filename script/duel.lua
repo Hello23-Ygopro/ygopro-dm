@@ -420,7 +420,7 @@ function Duel.SendtoSZone(targets)
 	return res
 end
 --send a card from the top of a player's deck to the mana zone
-function Duel.SendDecktoptoMZone(player,count,pos,reason)
+function Duel.SendDecktoMZone(player,count,pos,reason)
 	--player: the player whose cards to send to the mana zone
 	--count: the number of cards to send to the mana zone
 	local g=Duel.GetDecktopGroup(player,count)
@@ -428,7 +428,7 @@ function Duel.SendDecktoptoMZone(player,count,pos,reason)
 	return Duel.SendtoMZone(g,pos,reason)
 end
 --send a card from the top of a player's deck to the graveyard
-function Duel.DMSendDecktoptoGrave(player,count,reason)
+function Duel.DMSendDecktoGrave(player,count,reason)
 	--player: the player whose cards to send to the graveyard
 	--count: the number of cards to send to the graveyard
 	local g=Duel.GetDecktopGroup(player,count)
@@ -436,7 +436,7 @@ function Duel.DMSendDecktoptoGrave(player,count,reason)
 	return Duel.DMSendtoGrave(g,reason)
 end
 --send a card from the top of a player's deck to the shield zone
-function Duel.SendDecktoptoSZone(player,count)
+function Duel.SendDecktoSZone(player,count)
 	--player: the player whose cards to send to the shield zone
 	--count: the number of cards to send to the shield zone
 	local g=Duel.GetDecktopGroup(player,count)
@@ -446,30 +446,30 @@ end
 --send up to a number of cards from the top of a player's deck to the mana zone
 --reserved
 --[[
-function Duel.SendDecktoptoMZoneUpTo(player,count,pos,reason)
+function Duel.SendDecktoMZoneUpTo(player,count,pos,reason)
 	local deck_count=Duel.GetFieldGroupCount(player,LOCATION_DECK,0)
-	if deck_count>0 and Duel.IsPlayerCanSendDecktoptoMZone(player,1) and Duel.SelectYesNo(player,YESNOMSG_TOMZONE) then
+	if deck_count>0 and Duel.IsPlayerCanSendDecktoMZone(player,1) and Duel.SelectYesNo(player,YESNOMSG_TOMZONE) then
 		if deck_count>count then deck_count=count end
 		local t={}
 		for i=1,deck_count do t[i]=i end
 		Duel.Hint(HINT_SELECTMSG,player,HINTMSG_ANNOUNCETOMZONE)
 		local an=Duel.AnnounceNumber(player,table.unpack(t))
-		return Duel.SendDecktoptoMZone(player,an,pos,reason)
+		return Duel.SendDecktoMZone(player,an,pos,reason)
 	end
 	return 0
 end
 ]]
 --send up to a number of cards from the top of a player's deck to the shield zone
-function Duel.SendDecktoptoSZoneUpTo(player,count)
+function Duel.SendDecktoSZoneUpTo(player,count)
 	local deck_count=Duel.GetFieldGroupCount(player,LOCATION_DECK,0)
-	if deck_count==0 or not Duel.IsPlayerCanSendDecktoptoSZone(player,1)
+	if deck_count==0 or not Duel.IsPlayerCanSendDecktoSZone(player,1)
 		or not Duel.SelectYesNo(player,YESNOMSG_TOSZONE) then return 0 end
 	if deck_count>count then deck_count=count end
 	local t={}
 	for i=1,deck_count do t[i]=i end
 	Duel.Hint(HINT_SELECTMSG,player,HINTMSG_ANNOUNCETOSZONE)
 	local an=Duel.AnnounceNumber(player,table.unpack(t))
-	return Duel.SendDecktoptoSZone(player,an)
+	return Duel.SendDecktoSZone(player,an)
 end
 --workaround to prevent the game from removing evolution source
 function Duel.KeepEvolutionSource(targets)
@@ -518,13 +518,13 @@ end
 --check if a player can send a card from the top of their deck to the graveyard
 --reserved
 --[[
-function Duel.DMIsPlayerCanSendDecktoptoGrave(player,count)
+function Duel.DMIsPlayerCanSendDecktoGrave(player,count)
 	local g=Duel.GetDecktopGroup(player,count)
 	return g:FilterCount(Card.DMIsAbleToGrave,nil)>0
 end
 ]]
 --check if a player can send a card from the top of their deck to the shield zone
-function Duel.IsPlayerCanSendDecktoptoSZone(player,count)
+function Duel.IsPlayerCanSendDecktoSZone(player,count)
 	local g=Duel.GetDecktopGroup(player,count)
 	return g:FilterCount(Card.IsAbleToSZone,nil)>0
 end
@@ -563,10 +563,6 @@ function Duel.RandomDiscardHand(player,count,reason,ex)
 	if g:GetCount()==0 then return 0 end
 	local sg=g:RandomSelect(player,count)
 	return Duel.Remove(sg,POS_FACEUP,reason+REASON_DISCARD)
-end
---check if a player can untap the cards in their mana zone at the start of each of their turns
-function Duel.IsPlayerCanUntapStartStep(player)
-	return not Duel.IsPlayerAffectedByEffect(player,EFFECT_PLAYER_CANNOT_UNTAP_START)
 end
 --get the creature that is blocking
 function Duel.GetBlocker()
@@ -749,4 +745,4 @@ Duel.DoBattle=Duel.CalculateDamage
 --choose a civilization
 Duel.AnnounceCivilization=Duel.AnnounceAttribute
 --check if a player can send a card from the top of their deck to the mana zone
-Duel.IsPlayerCanSendDecktoptoMZone=Duel.IsPlayerCanDiscardDeck
+Duel.IsPlayerCanSendDecktoMZone=Duel.IsPlayerCanDiscardDeck

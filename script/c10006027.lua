@@ -9,6 +9,6 @@ end
 --to shield zone
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	if Duel.GetShieldCount(1-tp)>Duel.GetShieldCount(tp) then
-		Duel.SendDecktoptoSZone(tp,1)
+		Duel.SendDecktoSZone(tp,1)
 	end
 end

@@ -25,7 +25,7 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	end
 	if seq==-1 then
 		Duel.ConfirmDecktop(tp,dcount)
-		Duel.DMSendDecktoptoGrave(tp,dcount-seq,REASON_EFFECT)
+		Duel.DMSendDecktoGrave(tp,dcount-seq,REASON_EFFECT)
 		return
 	end
 	Duel.ConfirmDecktop(tp,dcount-seq)
@@ -34,5 +34,5 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Destroy(g2,REASON_EFFECT)
 	end
 	Duel.DisableShuffleCheck()
-	Duel.DMSendDecktoptoGrave(tp,dcount-seq,REASON_EFFECT)
+	Duel.DMSendDecktoGrave(tp,dcount-seq,REASON_EFFECT)
 end

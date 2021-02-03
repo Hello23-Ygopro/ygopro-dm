@@ -32,7 +32,7 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 	end
 	if seq==-1 then
 		Duel.ConfirmDecktop(p,dcount)
-		Duel.DMSendDecktoptoGrave(p,dcount-seq,REASON_EFFECT)
+		Duel.DMSendDecktoGrave(p,dcount-seq,REASON_EFFECT)
 		return
 	end
 	Duel.ConfirmDecktop(p,dcount-seq)
@@ -41,10 +41,10 @@ function scard.op1(e,tp,eg,ep,ev,re,r,rp)
 		if dcount-seq==1 then Duel.SendtoBZone(tbcard,0,p,p,false,false,POS_FACEUP_UNTAPPED)
 		else
 			Duel.SendtoBZoneStep(tbcard,0,p,p,false,false,POS_FACEUP_UNTAPPED)
-			Duel.DMSendDecktoptoGrave(p,dcount-seq-1,REASON_EFFECT)
+			Duel.DMSendDecktoGrave(p,dcount-seq-1,REASON_EFFECT)
 			Duel.SendtoBZoneComplete()
 		end
-	else Duel.DMSendDecktoptoGrave(p,dcount-seq,REASON_EFFECT) end
+	else Duel.DMSendDecktoGrave(p,dcount-seq,REASON_EFFECT) end
 end
 --[[
 	References

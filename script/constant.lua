@@ -5,6 +5,7 @@ MAX_COUNTER		=65535		--max number for adding/removing counters, by card::add_cou
 MAX_NUMBER		=999999999	--Max number allowed in YGOPro
 MAX_MANA_COST	=4294967295	--"Dormageddon X, Forbidden Armageddon" (DMR-23 FFL1,FFL2,FFL3,FFL4,FFL5/FFL5)
 --Card ID
+CARD_RULES						=10000000	--Rules (Unofficial card)
 CARD_WOLFIS_BLUE_DIVINE_DRAGON	=10027		--EVENT_CUSTOM+EVENT_BECOME_SHIELD_TRIGGER
 CARD_HOLY_AWE					=10001006	--EVENT_CUSTOM+EVENT_TRIGGER_SHIELD_TRIGGER
 CARD_BLOODY_SQUITO				=10001046	--EVENT_CUSTOM+EVENT_WIN_BATTLE
@@ -18,6 +19,8 @@ CARD_BLUUM_ERKIS_FLARE_GUARDIAN	=10010119	--EVENT_CUSTOM+EVENT_CAST_FREE
 CARD_WARPED_LUNATRON			=10011023	--EVENT_CUSTOM+EVENT_UNTAP_START_STEP
 CARD_SOUL_PHOENIX				=10012005	--EVENT_CUSTOM+EVENT_TO_SZONE
 CARD_GASHI_GASHI				=10013034	--EVENT_CUSTOM+EVENT_LOSE_BATTLE
+--Flag Effect Code (for Card.RegisterFlagEffect, Duel.RegisterFlagEffect)
+FLAG_CODE_RULES	=10000000	--Prevents registering rules twice
 --Location
 LOCATION_ALL		=0xff	--All locations
 LOCATION_DECK		=0x01	--Deck
@@ -74,7 +77,7 @@ TYPE_RITUAL			=0x80		--(unused)
 TYPE_TRAPMONSTER	=0x100		--(unused)
 TYPE_SPIRIT			=0x200		--(unused)
 TYPE_UNION			=0x400		--(unused)
-TYPE_MULTICOLORED	=0x800		--Card that has 2 or more civilizations
+TYPE_MULTICOLORED	=0x800		--Card that has multiple civilizations
 TYPE_NO_ABILITY		=0x1000		--Creature that has no abilities
 TYPE_SYNCHRO		=0x2000		--(unused)
 TYPE_TOKEN			=0x4000		--(unused)
@@ -788,7 +791,7 @@ EFFECT_SKIP_DP						=180	--Skip Draw Phase
 EFFECT_SKIP_SP						=181	--Skip Standby Phase
 EFFECT_SKIP_M1						=182	--(unused) Skip Main Phase 1
 EFFECT_SKIP_BP						=183	--(unused) Skip Battle Phase
-EFFECT_SKIP_M2						=184	--(unused) Skip Main Phase 2
+EFFECT_SKIP_M2						=184	--Skip Main Phase 2
 EFFECT_CANNOT_BP					=185	--(unused) Cannot conduct Battle Phase
 EFFECT_CANNOT_M2					=186	--Cannot conduct Main Phase 2
 EFFECT_CANNOT_EP					=187	--(unused) Cannot conduct End Phase
@@ -1120,7 +1123,7 @@ HINTMSG_ANNOUNCENAME	=523	--Name a card.
 HINTMSG_ATTACKTARGET	=549	--Choose a creature to attack.
 HINTMSG_APPLYABILITY	=556	--Choose an ability to apply.
 --Information displayed in a dialog box
-ERROR_DECKCOUNT		=1450	--Your deck must be exactly 40 cards!
+ERROR_DECKCOUNT		=1450	--Your deck must have exactly 40 cards!
 ERROR_NOBZONES		=1630	--You may have up to 5 creatures in the battle zone when playing with this app. However, there is no limit when playing the actual card game.
 ERROR_NOSZONES		=1631	--You may have up to 5 shields when playing with this app. However, there is no limit when playing the actual card game.
 ERROR_NOTARGETS		=1632	--There is no applicable card.

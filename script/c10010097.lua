@@ -9,7 +9,7 @@ function scard.initial_effect(c)
 end
 --to shield zone, confirm shield
 function scard.op1(e,tp,eg,ep,ev,re,r,rp)
-	Duel.SendDecktoptoSZone(tp,1)
+	Duel.SendDecktoSZone(tp,1)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_CONFIRM)
 	local g=Duel.SelectMatchingCard(tp,aux.ShieldZoneFilter(Card.IsFacedown),tp,0,LOCATION_SZONE,1,1,nil)
 	if g:GetCount()==0 then return end

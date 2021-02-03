@@ -309,7 +309,7 @@ function Auxiliary.EnableCreatureAttribute(c)
 	local e2=Effect.CreateEffect(c)
 	e2:SetType(EFFECT_TYPE_SINGLE)
 	e2:SetCode(EFFECT_CANNOT_BE_BATTLE_TARGET)
-	e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE+EFFECT_FLAG_SINGLE_RANGE)
+	e2:SetProperty(EFFECT_FLAG_SINGLE_RANGE+EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE)
 	e2:SetRange(LOCATION_BZONE)
 	e2:SetCondition(Auxiliary.CannotBeBattleTargetCondition)
 	e2:SetValue(Auxiliary.CannotBeBattleTargetValue)
@@ -2256,7 +2256,7 @@ function Auxiliary.DiscardOperation(p,f,s,o,min,max,ram,ex,...)
 				max=max or min
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex) end
 				local g=Duel.GetMatchingGroup(f,tp,s,o,exg,table.unpack(ext_params))
@@ -2313,7 +2313,7 @@ function Auxiliary.SendtoBZoneTarget(f,s,o,ex,...)
 	local ext_params={...}
 	return	function(e,tp,eg,ep,ev,re,r,rp,chk)
 				if chk==0 then
-					if s==LOCATION_DECK or o==LOCATION_DECK then
+					if bit.band(s,LOCATION_DECK)~=0 or bit.band(o,LOCATION_DECK)~=0 then
 						return Duel.GetFieldGroupCount(tp,s,o)>0
 					else
 						return Duel.IsExistingMatchingCard(Auxiliary.SendtoBZoneFilter,tp,s,o,1,ex,e,tp,f,table.unpack(ext_params))
@@ -2369,7 +2369,7 @@ function Auxiliary.SendtoGraveOperation(p,f,s,o,min,max,ex,...)
 				max=max or min
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex) end
 				local g=Duel.GetMatchingGroup(aux.AND(Card.DMIsAbleToGrave,f),tp,s,o,exg,table.unpack(ext_params))
@@ -2400,7 +2400,7 @@ function Auxiliary.SendtoHandOperation(p,f,s,o,min,max,conf,ex,...)
 				if g:GetCount()==0 then return end
 				if e:IsHasType(EFFECT_TYPE_CONTINUOUS) then Duel.Hint(HINT_CARD,0,e:GetHandler():GetOriginalCode()) end
 				if min and max then
-					if s==LOCATION_DECK or o==LOCATION_DECK then desc=HINTMSG_ATOHAND end
+					if bit.band(s,LOCATION_DECK)~=0 or bit.band(o,LOCATION_DECK)~=0 then desc=HINTMSG_ATOHAND end
 					Duel.Hint(HINT_SELECTMSG,player,desc)
 					local sg=g:Select(player,min,max,ex,table.unpack(ext_params))
 					local hg=sg:Filter(Card.IsLocation,nil,LOCATION_BZONE+LOCATION_SZONE)
@@ -2456,7 +2456,7 @@ function Auxiliary.SendtoMZoneOperation(p,f,s,o,min,max,ex,...)
 				max=max or min
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex) end
 				local g=Duel.GetMatchingGroup(aux.AND(Card.IsAbleToMZone,f),tp,s,o,exg,table.unpack(ext_params))
@@ -2478,16 +2478,16 @@ function Auxiliary.DecktopSendtoMZoneTarget(p)
 	--p: the player whose cards to send to the mana zone (PLAYER_SELF or PLAYER_OPPO)
 	return	function(e,tp,eg,ep,ev,re,r,rp,chk)
 				local player=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp)
-				if chk==0 then return Duel.IsPlayerCanSendDecktoptoMZone(player,1) end
+				if chk==0 then return Duel.IsPlayerCanSendDecktoMZone(player,1) end
 			end
 end
 function Auxiliary.DecktopSendtoMZoneOperation(p,ct)
 	--ct: the number of cards to send to the mana zone
 	return	function(e,tp,eg,ep,ev,re,r,rp)
 				local player=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp)
-				if not Duel.IsPlayerCanSendDecktoptoMZone(player,1) then return end
+				if not Duel.IsPlayerCanSendDecktoMZone(player,1) then return end
 				if e:IsHasType(EFFECT_TYPE_CONTINUOUS) then Duel.Hint(HINT_CARD,0,e:GetHandler():GetOriginalCode()) end
-				Duel.SendDecktoptoMZone(player,ct,POS_FACEUP_UNTAPPED,REASON_EFFECT)
+				Duel.SendDecktoMZone(player,ct,POS_FACEUP_UNTAPPED,REASON_EFFECT)
 			end
 end
 --Shield Feed
@@ -2502,7 +2502,7 @@ function Auxiliary.SendtoSZoneOperation(p,f,s,o,min,max,ex,...)
 				if max>szone_count then max=szone_count end
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex) end
 				local g=Duel.GetMatchingGroup(aux.AND(Card.IsAbleToSZone,f),tp,s,o,exg,table.unpack(ext_params))
@@ -2547,8 +2547,8 @@ function Auxiliary.DecktopSendtoSZoneTarget(p)
 				local player1=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp) or (p==PLAYER_ALL and tp)
 				local player2=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp) or (p==PLAYER_ALL and 1-tp)
 				if chk==0 then
-					local b1=Duel.IsPlayerCanSendDecktoptoSZone(player1,1)
-					local b2=Duel.IsPlayerCanSendDecktoptoSZone(player2,1)
+					local b1=Duel.IsPlayerCanSendDecktoSZone(player1,1)
+					local b2=Duel.IsPlayerCanSendDecktoSZone(player2,1)
 					if p==PLAYER_ALL then
 						return b1 or b2
 					else
@@ -2562,12 +2562,12 @@ function Auxiliary.DecktopSendtoSZoneOperation(p,ct)
 	return	function(e,tp,eg,ep,ev,re,r,rp)
 				local player1=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp) or (p==PLAYER_ALL and tp)
 				local player2=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp) or (p==PLAYER_ALL and 1-tp)
-				if not Duel.IsPlayerCanSendDecktoptoSZone(player1,1)
-					and not Duel.IsPlayerCanSendDecktoptoSZone(player2,1) then return end
+				if not Duel.IsPlayerCanSendDecktoSZone(player1,1)
+					and not Duel.IsPlayerCanSendDecktoSZone(player2,1) then return end
 				if e:IsHasType(EFFECT_TYPE_CONTINUOUS) then Duel.Hint(HINT_CARD,0,e:GetHandler():GetOriginalCode()) end
-				Duel.SendDecktoptoSZone(player1,ct)
+				Duel.SendDecktoSZone(player1,ct)
 				if p==PLAYER_ALL then
-					Duel.SendDecktoptoSZone(player2,ct)
+					Duel.SendDecktoSZone(player2,ct)
 				end
 			end
 end
@@ -2575,9 +2575,9 @@ end
 function Auxiliary.DecktopSendtoSZoneUpToOperation(p,ct)
 	return	function(e,tp,eg,ep,ev,re,r,rp)
 				local player=(p==PLAYER_SELF and tp) or (p==PLAYER_OPPO and 1-tp)
-				if not Duel.IsPlayerCanSendDecktoptoSZone(player,1) then return end
+				if not Duel.IsPlayerCanSendDecktoSZone(player,1) then return end
 				if e:IsHasType(EFFECT_TYPE_CONTINUOUS) then Duel.Hint(HINT_CARD,0,e:GetHandler():GetOriginalCode()) end
-				Duel.SendDecktoptoSZoneUpTo(player,ct)
+				Duel.SendDecktoSZoneUpTo(player,ct)
 			end
 end
 --Sort
@@ -2681,7 +2681,7 @@ function Auxiliary.ReasonPlayerCondition(p)
 				return rp==player
 			end
 end
---condition to check if a player has a particular card in a location
+--condition to check if a player has a specific card in a location
 --e.g. "Iocant, the Oracle" (DM-01 Iocant, the Oracle 8/110)
 function Auxiliary.ExistingCardCondition(f,s,o,count)
 	return	function(e,tp,eg,ep,ev,re,r,rp)
@@ -2832,7 +2832,7 @@ function Auxiliary.CheckCardFunction(f,s,o,ex,...)
 	return	function(e,tp,eg,ep,ev,re,r,rp,chk)
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex) end
 				if chk==0 then return Duel.IsExistingMatchingCard(f,tp,s,o,1,exg,table.unpack(ext_params)) end
@@ -2847,7 +2847,7 @@ function Auxiliary.TargetCardFunction(p,f,s,o,min,max,desc,ex,...)
 				desc=desc or HINTMSG_TARGET
 				local c=e:GetHandler()
 				local exg=Group.CreateGroup()
-				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and s==LOCATION_HAND then exg:AddCard(c) end
+				if c:IsSpell() and c:IsLocation(LOCATION_HAND) and bit.band(s,LOCATION_HAND)~=0 then exg:AddCard(c) end
 				if type(ex)=="Card" then exg:AddCard(ex)
 				elseif type(ex)=="Group" then exg:Merge(ex)
 				elseif type(ex)=="function" then

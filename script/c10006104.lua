@@ -12,7 +12,7 @@ function scard.initial_effect(c)
 end
 --get ability (tap ability - to mana zone)
 function scard.tg1(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsPlayerCanSendDecktoptoMZone(tp,1) end
+	if chk==0 then return Duel.IsPlayerCanSendDecktoMZone(tp,1) end
 	Duel.Hint(HINT_OPSELECTED,1-tp,e:GetDescription())
 end
 scard.op1=aux.DecktopSendtoMZoneOperation(PLAYER_SELF,1)

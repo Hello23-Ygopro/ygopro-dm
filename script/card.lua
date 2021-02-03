@@ -17,7 +17,7 @@ function Card.IsAttack(c,atk)
 		return c:GetAttack()==atk
 	end
 end
---check if a card has a particular race or name category
+--check if a card has a given race or name category
 --Note: Overwritten to check for an infinite number of races and name categories
 local card_is_set_card=Card.IsSetCard
 function Card.IsSetCard(c,...)
@@ -88,6 +88,7 @@ function Card.IsTapped(c)
 end
 --check if a card can be untapped
 function Card.IsAbleToUntap(c)
+	if c:IsHasEffect(EFFECT_CANNOT_CHANGE_POS_E) then return false end
 	if c:IsLocation(LOCATION_MZONETAP) then
 		return c:IsAbleToGrave()
 	elseif c:IsLocation(LOCATION_BZONE) then
@@ -95,18 +96,25 @@ function Card.IsAbleToUntap(c)
 	end
 	return false
 end
---check if a card can be untapped at the start of the turn
-function Card.IsAbleToUntapStartStep(c)
-	return c:IsTapped() and not c:IsHasEffect(EFFECT_DONOT_UNTAP_START_STEP)
-end
 --check if a card can be tapped
 --Note: Remove EFFECT_IGNORE_TAP check if YGOPro allows a creature to tap itself for EFFECT_ATTACK_COST
 function Card.IsAbleToTap(c)
-	if c:GetFlagEffect(EFFECT_IGNORE_TAP)>0 then return false end
+	if c:IsHasEffect(EFFECT_CANNOT_CHANGE_POS_E) or c:GetFlagEffect(EFFECT_IGNORE_TAP)>0 then return false end
 	if c:IsLocation(LOCATION_MZONEUNT) then
 		return c:IsAbleToRemove()
 	elseif c:IsLocation(LOCATION_BZONE) then
 		return c:IsAttackPos()
+	end
+	return false
+end
+--check if a card can be untapped at the start of the turn
+function Card.IsAbleToUntapRule(c,player)
+	if player and Duel.IsPlayerAffectedByEffect(player,EFFECT_PLAYER_CANNOT_UNTAP_START) then return false end
+	if c:IsHasEffect(EFFECT_DONOT_UNTAP_START_STEP) then return false end
+	if c:IsLocation(LOCATION_MZONETAP) then
+		return c:IsAbleToGrave()
+	elseif c:IsLocation(LOCATION_BZONE) then
+		return c:IsDefensePos()
 	end
 	return false
 end
@@ -189,7 +197,7 @@ function Card.DMIsSummonable(c,player)
 	--if player and Duel.IsPlayerAffectedByEffect(player,EFFECT_CANNOT_SUMMON_CREATURE) then return false end --reserved
 	return not c:IsHasEffect(EFFECT_CANNOT_SUMMON_CREATURE)
 end
---check if a card has a particular race to put the appropriate evolution creature on it
+--check if a card has a given race to put the appropriate evolution creature on it
 function Card.IsEvolutionRace(c,...)
 	local race_list={...}
 	for _,racename in ipairs(race_list) do
@@ -197,7 +205,7 @@ function Card.IsEvolutionRace(c,...)
 	end
 	return false
 end
---check if a card has a particular name in its race to put the appropriate evolution creature on it
+--check if a card has a given name in its race to put the appropriate evolution creature on it
 function Card.IsEvolutionRaceCategory(c,...)
 	local cat_list={...}
 	for _,racecat in ipairs(cat_list) do
@@ -324,7 +332,7 @@ end
 function Card.IsManaCostAbove(c,cost)
 	return c:GetManaCost()>=cost
 end
---check if a card has a particular race
+--check if a card has a given race
 function Card.DMIsRace(c,...)
 	local setname_list={...}
 	if not RaceList then RaceList={} end
@@ -361,7 +369,7 @@ function Card.IsHasRace(c)
 	end
 	return race
 end
---check if a card has a particular name included in its race
+--check if a card has a given name included in its race
 function Card.IsRaceCategory(c,...)
 	local setname_list={...}
 	if not RaceCatList then RaceCatList={} end
@@ -375,9 +383,9 @@ function Card.IsRaceCategory(c,...)
 	return false
 end
 --Renamed Card functions
---check if a card had a particular race before it left the battle zone
+--check if a card had a given race before it left the battle zone
 Card.DMIsPreviousRace=Card.IsPreviousSetCard
---check if a card has a particular name in its card name
+--check if a card has a given name in its card name
 --Card.IsNameCategory=Card.IsSetCard --reserved
 --get the cost required for playing a card
 Card.GetPlayCost=Card.GetLevel
@@ -385,7 +393,7 @@ Card.GetPlayCost=Card.GetLevel
 Card.GetManaCost=Card.GetOriginalLevel
 --get all civilizations a card has
 Card.GetCivilization=Card.GetAttribute
---check if a card has a particular civilization
+--check if a card has a given civilization
 Card.IsCivilization=Card.IsAttribute
 --get a card's current power
 Card.GetPower=Card.GetAttack
