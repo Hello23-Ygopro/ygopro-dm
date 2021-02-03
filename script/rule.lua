@@ -39,8 +39,8 @@ function Rule.ApplyRules(e,tp,eg,ep,ev,re,r,rp)
 	Duel.SetLP(PLAYER_ONE,1)
 	Duel.SetLP(PLAYER_TWO,1)
 	--set shields
-	Duel.SendDecktoMZone(PLAYER_ONE,5)
-	Duel.SendDecktoMZone(PLAYER_TWO,5)
+	Duel.SendDecktoSZone(PLAYER_ONE,5)
+	Duel.SendDecktoSZone(PLAYER_TWO,5)
 	--draw starting hand
 	Duel.Draw(PLAYER_ONE,5,REASON_RULE)
 	Duel.Draw(PLAYER_TWO,5,REASON_RULE)
