@@ -1,12 +1,13 @@
 --Temporary Card functions
---check if a card's mana cost is equal to a given value
-local card_is_level=Card.IsLevel
-function Card.IsLevel(c,lv)
-	if card_is_level then
-		return card_is_level(c,lv)
-	else
-		return c:GetLevel()==lv
+--check if a card has a given setname
+--Note: Overwritten to check for an infinite number of setnames
+local card_is_set_card=Card.IsSetCard
+function Card.IsSetCard(c,...)
+	local setname_list={...}
+	for _,setname in ipairs(setname_list) do
+		if card_is_set_card(c,setname,...) then return true end
 	end
+	return false
 end
 --check if a card's power is equal to a given value
 local card_is_attack=Card.IsAttack
@@ -17,26 +18,18 @@ function Card.IsAttack(c,atk)
 		return c:GetAttack()==atk
 	end
 end
---check if a card has a given race or name category
---Note: Overwritten to check for an infinite number of races and name categories
-local card_is_set_card=Card.IsSetCard
-function Card.IsSetCard(c,...)
-	local setname_list={...}
-	for _,setname in ipairs(setname_list) do
-		if card_is_set_card(c,setname,...) then return true end
-	end
-	return false
-end
 --Overwritten Card functions
 --check if a card can be sent to the battle zone
+--Note: Overwritten to allow face-down banished cards to special summon
 local card_is_can_be_special_summoned=Card.IsCanBeSpecialSummoned
 function Card.IsCanBeSpecialSummoned(c,...)
-	--workaround to allow face-down banished monsters to special summon
+	--workaround to allow face-down banished cards to special summon
 	if c:IsLocation(LOCATION_MZONETAP) and c:IsFacedown() then return true end
 	return card_is_can_be_special_summoned(c,...)
 end
 Card.IsAbleToBZone=Card.IsCanBeSpecialSummoned
 --check if a card can attack
+--Note: Overwritten to check if a card has an effect that ignores it being unable to attack
 local card_is_attackable=Card.IsAttackable
 function Card.IsAttackable(c)
 	if c:IsHasEffect(EFFECT_IGNORE_CANNOT_ATTACK) then return true end
@@ -107,7 +100,7 @@ function Card.IsAbleToTap(c)
 	end
 	return false
 end
---check if a card can be untapped at the start of the turn
+--check if a card can be untapped during the start of turn step
 function Card.IsAbleToUntapRule(c,player)
 	if player and Duel.IsPlayerAffectedByEffect(player,EFFECT_PLAYER_CANNOT_UNTAP_START) then return false end
 	if c:IsHasEffect(EFFECT_DONOT_UNTAP_START_STEP) then return false end
@@ -333,6 +326,7 @@ function Card.IsManaCostAbove(c,cost)
 	return c:GetManaCost()>=cost
 end
 --check if a card has a given race
+--Note: Add races gained by effects to RaceList
 function Card.DMIsRace(c,...)
 	local setname_list={...}
 	if not RaceList then RaceList={} end
@@ -370,6 +364,7 @@ function Card.IsHasRace(c)
 	return race
 end
 --check if a card has a given name included in its race
+--Note: Add race categories gained by effects to RaceCatList
 function Card.IsRaceCategory(c,...)
 	local setname_list={...}
 	if not RaceCatList then RaceCatList={} end
@@ -382,13 +377,31 @@ function Card.IsRaceCategory(c,...)
 	end
 	return false
 end
+--get all race categories a card has
+function Card.GetRaceCategory(c)
+	local racecat=0
+	local ct=1
+	while ct<=4095 and racecat==0 do
+		if c:IsRaceCategory(ct) then
+			racecat=racecat+ct
+		end
+		ct=ct+1
+	end
+	return racecat
+end
 --Renamed Card functions
 --check if a card had a given race before it left the battle zone
 Card.DMIsPreviousRace=Card.IsPreviousSetCard
 --check if a card has a given name in its card name
---Card.IsNameCategory=Card.IsSetCard --reserved
---get the cost required for playing a card
+Card.IsNameCategory=Card.IsSetCard
+--get a card's play cost
 Card.GetPlayCost=Card.GetLevel
+--check if a card's play cost is equal to a given value
+Card.IsPlayCost=Card.IsLevel
+--check if a card's play cost is less than or equal to a given value
+Card.IsPlayCostBelow=Card.IsLevelBelow
+--check if a card's play cost is greater than or equal to a given value
+Card.IsPlayCostAbove=Card.IsLevelAbove
 --get a card's mana cost
 Card.GetManaCost=Card.GetOriginalLevel
 --get all civilizations a card has
